@@ -4,7 +4,17 @@ import contacts from "./contacts.js";
 import Card from "./components/Card.jsx";
 import Avatar from "./components/Avatar";
 
-
+function createCard(contact) {
+  return (
+    <Card 
+      key={contact.id}
+      id={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      phone= {contact.phone}
+      email={contact.email}
+    />)
+}
 
 
 
@@ -16,7 +26,10 @@ function App() {
     <div>
       <h1 className="heading">My Contacts</h1>
       <Avatar img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTGbWN0KpNPejhkQTGODE5zp7_P03OvFNaf8g&usqp=CAU" />
-      <Card 
+
+      {contacts.map(createCard)}
+
+      {/* <Card 
         name={contacts[0].name}
         img ={contacts[0].imgURL}
         phone= {contacts[0].phone}
@@ -33,7 +46,7 @@ function App() {
         img ={contacts[2].imgURL}
         phone= {contacts[2].phone}
         email={contacts[2].email}
-        />
+      />*/}
     </div>
   
 
